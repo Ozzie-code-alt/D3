@@ -42,5 +42,6 @@ let barWidth = (svgWidth / dataSet.length) // width of per bar
 
 
 let svg = d3.select('svg').attr('width', svgHeight).attr('height', svgHeight)
-
-let barChart = svg.selectAll('rect').data(dataSet).append('rect').attr('y', function(d) {return svgHeight -d})
+// enter will take our data from waiting state then perform further operations/data items
+// for each data item we appen a rect
+let barChart = svg.selectAll('rect').data(dataSet).enter().append('rect').attr('y', function(d) {return svgHeight -d}).attr("height", function(d){return d}).attr("width", barWidth - barPadding).attr("transform", function(d,i){let translate = [barWidth * i, 0]; return "translate("+translate+")"})
