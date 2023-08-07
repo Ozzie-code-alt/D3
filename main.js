@@ -11,9 +11,23 @@ d3.select('h1').style('color', 'red')
 
 
 // append a paragraph tag
-d3.select('body').append('p').text('Hello world 1')
-d3.select('body').append('p').text('Hello world 2')
-d3.select('body').append('p').text('Hello world 3')
+// d3.select('body').append('p').text('Hello world 1')
+// d3.select('body').append('p').text('Hello world 2')
+// d3.select('body').append('p').text('Hello world 3')
 
 // we use the select all 
-d3.selectAll('p').style('color', 'blue')
+// d3.selectAll('p').style('color', 'blue')
+
+
+
+// mow we try to push a data to DOM 
+
+let data = [1,2,3,4,5]
+
+d3.select('body')
+.selectAll('p')
+.data(data).
+enter()
+.append('p')
+// .text('data added') loads text
+.text(function(b) {return b}) // returns the data instead b is placeholder for data in data()
