@@ -31,3 +31,16 @@ enter()
 .append('p')
 // .text('data added') loads text
 .text(function(b) {return b}) // returns the data instead b is placeholder for data in data()
+
+
+// barchart 
+
+let dataSet = [90,34,133,76,345,23,87,45,324,2,1,657]
+
+let svgWidth = 500, svgHeight = 300, barPadding =5
+let barWidth = (svgWidth / dataSet.length) // width of per bar
+
+
+let svg = d3.select('svg').attr('width', svgHeight).attr('height', svgHeight)
+
+let barChart = svg.selectAll('rect').data(dataSet).append('rect').attr('y', function(d) {return svgHeight -d})
